@@ -14,11 +14,12 @@ function draw() {
 function drawWarpedEllipses() {
     let i = 0;
     let step = 25;
-    let colorStep = step*2;
-    while (i < 6) {
-        let gray = 255 - (i * colorStep);
+    let offset = 200;
+    let amount = 5;
+    while (i <= amount) {
+        let gray = 255 - i / 5 * 255;
         context.fillStyle = Utils.rgb(gray, gray, gray);
-        Utils.fillAndStrokeEllipse(200, 200, 25 + (i * step), 150 - (i * step));
+        Utils.fillAndStrokeEllipse(offset, 200, 25 + (i * step), 150 - (i * step));
         i++;
     }
 }

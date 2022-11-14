@@ -14,10 +14,12 @@ function draw() {
 
 function drawDiagonalLines() {
     let i = 0;
-    let offset = 75;
-    let spacing = 25;
-    while (i <= 7) {
-        Utils.drawLine(50, offset + (spacing * i), 200, 50 + (spacing * i));
+    while (i <= 6) {
+        let x1 = 50 + i * 25;
+        let y1 = 200 + i * 25;
+        let x2 = 200 + i * 25;
+        let y2 = 50 + i * 25;
+        Utils.drawLine(x1, y1, x2, y2);
         i++;
     }
 }

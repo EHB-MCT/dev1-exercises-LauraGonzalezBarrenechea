@@ -14,9 +14,11 @@ function draw() {
 function drawConcentricCircles() {
     context.fillStyle = "#AAAAAA";
     let i = 0;
-    while (i < 6) {
-        let radius = 50;
-        Utils.fillAndStrokeCircle(200, 200, radius);
+    let step = 25;
+    let offset = 200;
+    let amount = 5;
+    while (i <= amount) {
+        Utils.fillAndStrokeCircle(offset, 200, 150 - (i * step));
         i++;
     }
 }

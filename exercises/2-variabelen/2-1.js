@@ -34,6 +34,5 @@
   
    
    context.stroke();
-
-   }
+}
 
