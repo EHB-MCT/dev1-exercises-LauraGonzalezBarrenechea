@@ -8,8 +8,8 @@ let height = context.canvas.height;
  drawDots();
 
  function drawDots() {
-
-     for (let i = 0; i < 100000; i++) {
+    context.fillRect(0, 0, width, height);
+    for (let i = 0; i < 100000; i++) {
          let x = Math.random() * width;
          let y = Math.random() * height;
          let distance = Utils.calculateDistance(width / 2, height / 2, x, y);
