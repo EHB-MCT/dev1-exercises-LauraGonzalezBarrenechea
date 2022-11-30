@@ -6,31 +6,49 @@ import * as Noise from "../../scripts/noise.js";
 let width = context.canvas.width;
 let height = context.canvas.height;
 
-let spacing = 10;
-
-drawMaze();
+drawColorMaze();
 
 function drawMaze() {
-	context.lineWidth = 5;
-	context.lineCap = 'square';
-	console.log("Checking up");
-
-	context.fillRect(0, 0, width, height);
-
-	let horizontalAmount = width / spacing;
-	let verticalAmount = height / spacing;
-	for (let j = 0; j < verticalAmount; j++); {
-		for (let i = 0; i < horizontalAmount; i++) {
-			let randomColor = Math.floor(Math.random() * 360);
-			context.strokeStyle = Utils.hsl(randomColor, 50, 50);
-			let random = Math.floor(Math.random() * 2);
-			if (random == 1) {
-				Utils.drawLine(i * spacing, j * spacing, spacing + i * spacing, spacing + j * spacing);
-			} else {
-				Utils.drawLine(spacing + i * spacing, j * spacing, i * spacing, spacing + j * spacing);
-		    }
-	    }
+    context.fillStyle = "darkgray";
+    context.lineCap = "square";
+    context.lineWidth = 5;
+    context.fillRect(0, 0, width, height);
+    let space = 10;
+    for (let i = 0; i < width / space; i++) {
+        for (let j = 0; j < height / space; j++) {
+            let r = Math.floor(Math.random() * 2);
+            if (r == 0) {
+                drawLine(i * space, j * space, (i + 1) * space, (j + 1) * space);
+            } else {
+                drawLine(i * space, (j + 1) * space, (i + 1) * space, j * space);
+            }
+        }
     }
 }
 
+function drawColorMaze() {
+    context.fillStyle = "black";
+    context.lineCap = "square";
+    context.lineWidth = 5;
+    context.fillRect(0, 0, width, height);
+    let space = 10;
+    for (let i = 0; i < width / space; i++) {
+        for (let j = 0; j < height / space; j++) {
+            let r = Math.floor(Math.random() * 2);
+            context.strokeStyle = Utils.hsl(Math.random() * 360, 50, 50);
+            if (r == 0) {
+                drawLine(i * space, j * space, (i + 1) * space, (j + 1) * space);
+            } else {
+                drawLine(i * space, (j + 1) * space, (i + 1) * space, j * space);
+            }
+        }
+    }
+}
+
+function drawLine(x1, y1, x2, y2) {
+    context.beginPath();
+    context.moveTo(x1, y1);
+    context.lineTo(x2, y2);
+    context.stroke();
+}
 	
