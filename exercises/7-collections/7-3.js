@@ -9,6 +9,11 @@ let yPositions = [];
 
 document.onmousemove = move;
 
+function setup() {
+    // Attempt to refresh at starting FPS
+   
+  }
+
 //Kan ook met push en shift gedaan worden
 function move(e) {
     for (let i = 99; i > 0; i--) {
